@@ -35,3 +35,12 @@ export async function searchMovies(query: string) {
     console.error(error)
   }
 }
+
+export async function getTopRatedMovies() {
+  try {
+    const response = await tmdb.get(`/movie/top_rated`)
+    return response.data.results
+  } catch (error) {
+    console.error(error)
+  }
+}
