@@ -50,6 +50,11 @@ const clearSearch = () => {
     border-radius: 50px;
     padding: 10px 20px;
 
+    /* Media Query pour les écrans jusqu'à 600px de large */
+    @media (max-width: 600px) {
+      max-width: 90%;
+    }
+
     input {
       background-color: transparent;
       border: none;
@@ -57,7 +62,7 @@ const clearSearch = () => {
       font-size: 1rem;
       width: 100%;
       margin-left: 10px;
-      padding-right: 30px; /* Ajoutez cette ligne */
+      padding-right: 30px;
 
       &::placeholder {
         color: var(--color-text);
@@ -76,7 +81,7 @@ const clearSearch = () => {
 
     .clear-icon {
       position: absolute;
-      right: 20px; /* Ajustez cette valeur pour positionner l'icône plus à gauche ou à droite */
+      right: 20px;
       top: 50%;
       transform: translateY(-50%);
       background: none;
