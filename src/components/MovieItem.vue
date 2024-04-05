@@ -21,9 +21,7 @@ const props = defineProps({
 })
 
 const goToMovieDetail = () => {
-  console.log(props.movie.id)
-
-  if (props.movie.id) {
+  if (props.movie?.id) {
     router.push({ name: 'MovieDetail', params: { id: props.movie.id } })
   }
 }
