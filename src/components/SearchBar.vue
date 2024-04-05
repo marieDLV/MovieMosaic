@@ -1,7 +1,17 @@
 <template>
-  <div class="search-bar">
-    <input type="text" v-model="query" @input="search" placeholder="Rechercher un film..." />
-    <button v-if="searchQuery" @click="clearSearch" class="clear-icon">X</button>
+  <div class="search-bar-container">
+    <div class="search-bar">
+      <input
+        type="text"
+        class="search-input"
+        v-model="query"
+        @input="search"
+        placeholder="Rechercher un film..."
+      />
+      <button v-if="query" @click="clearSearch" class="clear-icon">
+        <font-awesome-icon :icon="['fas', 'times']" />
+      </button>
+    </div>
   </div>
 </template>
 
@@ -28,46 +38,51 @@ const clearSearch = () => {
 }
 </script>
 <style scoped lang="scss">
-.search-bar {
+.search-bar-container {
   display: flex;
   justify-content: center;
-  padding: 10px;
-  background-color: var(--color-background);
-  position: relative;
 
-  input {
-    width: 50%;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
+  .search-bar {
+    position: relative;
+    width: 100%;
+    max-width: 40%;
     background-color: var(--color-secondary);
-    color: var(--color-text);
-    font-size: 16px;
-    transition: width 0.5s ease-in-out;
+    border-radius: 50px;
+    padding: 10px 20px;
 
-    ::placeholder {
+    input {
+      background-color: transparent;
+      border: none;
       color: var(--color-text);
-    }
+      font-size: 1rem;
+      width: 100%;
+      margin-left: 10px;
+      padding-right: 30px; /* Ajoutez cette ligne */
 
-    &:focus {
-      width: 70%;
-      outline: none;
-      background-color: var(--color-secondary);
-      color: var(--color-primary);
+      &::placeholder {
+        color: var(--color-text);
+      }
 
-      ::placeholder {
+      &:focus {
+        outline: none;
+        background-color: var(--color-secondary);
         color: var(--color-primary);
+
+        &::placeholder {
+          color: var(--color-primary);
+        }
       }
     }
+
+    .clear-icon {
+      position: absolute;
+      right: 20px; /* Ajustez cette valeur pour positionner l'icône plus à gauche ou à droite */
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
   }
-}
-.clear-icon {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
 }
 </style>
