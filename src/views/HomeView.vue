@@ -29,8 +29,7 @@ const checkScroll = () => {
 }
 
 const updateResults = (results) => {
-  searchResults.value = results // Update search results when a search is performed
-  //movies.value = results
+  searchResults.value = results
 }
 
 onMounted(async () => {
